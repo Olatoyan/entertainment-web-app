@@ -1,6 +1,7 @@
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
-const StyledSearchBox = styled.div`
+const StyledSearchBox = styled.form`
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -34,11 +35,22 @@ const Input = styled.input`
   }
 `;
 
-function SearchBox({ placeholder }) {
+function SearchBox({ placeholder, onSearch }) {
+  const { register, handleSubmit } = useForm();
+
+  function onSubmit(data) {
+    console.log(data);
+    onSearch(data.searchTerm);
+  }
+
   return (
-    <StyledSearchBox>
+    <StyledSearchBox onSubmit={handleSubmit(onSubmit)}>
       <SearchIcon src="./icon-search.svg" alt="search icon" />
-      <Input type="text" placeholder={placeholder} />
+      <Input
+        type="text"
+        placeholder={placeholder}
+        {...register("searchTerm")}
+      />
     </StyledSearchBox>
   );
 }

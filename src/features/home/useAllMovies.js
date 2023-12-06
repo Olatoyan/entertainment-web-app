@@ -1,20 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllMovie, getAllMovies } from "../../utils/helpers";
+import { getAllMovies } from "../../utils/helpers";
 
-export function useAllMovies() {
-  const { data: allMovies, isLoading } = useQuery({
+export function useAllMovies(searchTerm = "") {
+  const {
+    data: allMovies,
+    isLoading,
+    status,
+  } = useQuery({
     queryKey: ["allMovies"],
-    queryFn: getAllMovies,
+    queryFn: () => getAllMovies(searchTerm),
   });
 
-  return { allMovies, isLoading };
-}
-
-export function useAllMovie() {
-  const { data: allMovie, isLoading } = useQuery({
-    queryKey: ["allMovie"],
-    queryFn: getAllMovie,
-  });
-
-  return { allMovie, isLoading };
+  return { allMovies, isLoading, status };
 }

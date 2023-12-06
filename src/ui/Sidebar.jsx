@@ -56,19 +56,19 @@ function Sidebar() {
             </Svg>
           </Link>
 
-          <Link to="/">
+          <Link to="/movies">
             <Svg>
               <use xlinkHref="./icon-nav-movies.svg#nav-movies"></use>
             </Svg>
           </Link>
 
-          <Link to="/">
+          <Link to="/series">
             <Svg>
               <use xlinkHref="./icon-nav-tv-series.svg#nav-series"></use>
             </Svg>
           </Link>
 
-          <Link to="/">
+          <Link to="/bookmark">
             <Svg>
               <use xlinkHref="./icon-nav-bookmark.svg#nav-bookmark"></use>
             </Svg>

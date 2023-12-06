@@ -15,10 +15,11 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 
-function RecommendedMovie({ movie }) {
+function BookmarkItem({ bookmarkShow }) {
   const { id, title, category, year, rating, isBookmarked, regular_large } =
-    movie;
+    bookmarkShow;
 
+  // console.log(bookmarkShow);
   const { toggleBookmark, isToggling } = useToggleBookmark();
 
   function handleToggle() {
@@ -68,4 +69,4 @@ function RecommendedMovie({ movie }) {
   );
 }
 
-export default RecommendedMovie;
+export default BookmarkItem;

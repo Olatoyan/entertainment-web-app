@@ -5,6 +5,9 @@ import Homepage from "./pages/Homepage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+import MoviesPage from "./pages/MoviesPage";
+import SeriesPage from "./pages/SeriesPage";
+import BookmarkPage from "./pages/BookmarkPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,6 +27,9 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Homepage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/series" element={<SeriesPage />} />
+            <Route path="/bookmark" element={<BookmarkPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

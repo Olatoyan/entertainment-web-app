@@ -4,10 +4,10 @@ import RecommendedMovies from "./RecommendedMovies";
 
 function Recommended() {
   return (
-    <div>
+    <section>
       <Heading as="h2">Recommended for you</Heading>
       <RecommendedMovies />
-    </div>
+    </section>
   );
 }
 

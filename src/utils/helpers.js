@@ -1,7 +1,15 @@
-import supabase, { supabaseUrl } from "../services/supabase";
+import supabase from "../services/supabase";
 
-// const BASE_URL = "http://localhost:3001/movies";
-const BASE_URL = "./data.json";
+export async function getAllMovies(searchTerm = "") {
+  const { data, error } = await supabase
+    .from("movies")
+    .select("*")
+    .ilike("title", `%${searchTerm}%`);
+
+  if (error) throw new Error("Could not get all movies");
+
+  return data;
+}
 
 export async function getTrendingMovies() {
   const { data, error } = await supabase
@@ -9,35 +17,69 @@ export async function getTrendingMovies() {
     .select("*")
     .eq("isTrending", true);
 
-  let { data: movies, error: error2 } = await supabase
+  if (error) throw new Error("Could not get trending movies");
+
+  return data;
+}
+
+export async function getOnlyMovies(searchTerm = "") {
+  const { data, error } = await supabase
     .from("movies")
-    .select("");
+    .select("*")
+    .eq("category", "Movie")
+    .ilike("title", `%${searchTerm}%`);
 
-  console.log(data);
+  if (error) throw new Error("Could not get movies");
+  return data;
+}
+
+export async function getOnlySeries(searchTerm = "") {
+  const { data, error } = await supabase
+    .from("movies")
+    .select("*")
+    .eq("category", "TV Series")
+    .ilike("title", `%${searchTerm}%`);
+
+  if (error) throw new Error("Could not get Tv Series");
+  return data;
+}
+
+export async function getBookmarkedShows() {
+  const { data, error } = await supabase
+    .from("movies")
+    .select("*")
+    .eq("isBookmarked", true);
+
+  if (error) throw new Error("Could not get Tv Series");
+  return data;
+}
+
+export async function toggleBookmark(id, obj) {
+  console.log(obj);
+
+  const { data, error } = await supabase
+    .from("movies")
+    .update(obj)
+    .order("id", { ascending: true })
+    .eq("id", id)
+    .select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Bookmark could not be updated");
+  }
 
   return data;
 }
 
-export async function getTrendingMovie() {
-  const response = await fetch(BASE_URL);
-  const data = await response.json();
+/*
 
-  const trendingData = data.filter((movie) => movie.isTrending);
-  return trendingData;
-}
+// export async function getAllMovies() {
+//   const response = await fetch(BASE_URL);
+//   const data = await response.json();
 
-export async function getAllMovie() {
-  const { data, error } = await supabase.from("movies").select("*");
-
-  return data;
-}
-
-export async function getAllMovies() {
-  const response = await fetch(BASE_URL);
-  const data = await response.json();
-
-  return data;
-}
+//   return data;
+// }
 
 // export async function toggleBookmark(id, bookmark) {
 //   console.log("Toggle Bookmark - id:", id, "bookmark:", bookmark);
@@ -76,22 +118,7 @@ export async function getAllMovies() {
 //   return updatedData;
 // }
 
-export async function toggleBookmark(id, obj) {
-  console.log(obj);
 
-  const { data, error } = await supabase
-    .from("movies")
-    .update(obj)
-    .order("id", { ascending: true })
-    .eq("id", id);
-
-  if (error) {
-    console.error(error);
-    throw new Error("Bookmark could not be updated");
-  }
-
-  return data;
-}
 
 // export async function toggleBookmark(title) {
 //   const response = await fetch(BASE_URL);
@@ -194,7 +221,7 @@ export async function toggleBookmark(id, obj) {
 //     }
 //     return data;
 //   }
-// */
+// 
 //   // const { data: updatedData, error: updateError } = await supabase
 //   // .from("movies")
 //   // .upsert([{ id, isBookmarked: Boolean(bookmark) }])
@@ -226,20 +253,4 @@ export async function toggleBookmark(id, obj) {
 //   console.log("Bookmark status updated successfully.");
 //   return updatedData;
 // }
-
-async function updateDataOnServer(updatedData) {
-  try {
-    // Send a PUT request to update the data on the server
-    await fetch(BASE_URL, {
-      method: "PUT", // Use the appropriate HTTP method for updating data
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedData),
-    });
-
-    console.log("Data updated on the server.");
-  } catch (error) {
-    console.error("Error updating data on the server:", error);
-  }
-}
+*/

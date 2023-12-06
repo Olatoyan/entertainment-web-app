@@ -3,10 +3,10 @@ import TrendingMovies from "./TrendingMovies";
 
 function Trending() {
   return (
-    <div>
+    <section>
       <Heading as="h1">Trending</Heading>
       <TrendingMovies />
-    </div>
+    </section>
   );
 }
 

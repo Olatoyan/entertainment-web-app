@@ -4,7 +4,7 @@
 import styled from "styled-components";
 import RecommendedMovie from "./RecommendedMovie";
 import Spinner from "../../ui/Spinner";
-import { useAllMovie } from "./useAllMovies";
+import { useAllMovies } from "./useAllMovies";
 
 const StyledMovie = styled.div`
   display: flex;
@@ -14,14 +14,14 @@ const StyledMovie = styled.div`
 `;
 
 function RecommendedMovies() {
-  const { allMovie, isLoading } = useAllMovie();
+  const { allMovies, isLoading } = useAllMovies();
 
   if (isLoading) return <Spinner />;
-  console.log(allMovie);
+  console.log(allMovies);
 
   return (
     <StyledMovie>
-      {allMovie.map((movie) => (
+      {allMovies.map((movie) => (
         <RecommendedMovie key={movie.title} movie={movie} />
       ))}
     </StyledMovie>
