@@ -4,6 +4,13 @@ export const Main = styled.main`
   max-width: 139rem;
 `;
 
+export const Results = styled.p`
+  font-size: 3.2rem;
+  font-weight: 300;
+  letter-spacing: -0.05rem;
+  margin-bottom: 3.2rem;
+`;
+
 export const StyledMovie = styled.div`
   display: flex;
   align-items: center;

@@ -1,23 +1,15 @@
 // import { useEffect, useState } from "react";
 // import { getAllMovies } from "../../utils/helpers";
 
-import styled from "styled-components";
 import RecommendedMovie from "./RecommendedMovie";
 import Spinner from "../../ui/Spinner";
 import { useAllMovies } from "./useAllMovies";
-
-const StyledMovie = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-`;
+import { StyledMovie } from "../../ui/BoxStyles";
 
 function RecommendedMovies() {
   const { allMovies, isLoading } = useAllMovies();
 
   if (isLoading) return <Spinner />;
-  console.log(allMovies);
 
   return (
     <StyledMovie>

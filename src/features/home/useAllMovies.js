@@ -7,7 +7,7 @@ export function useAllMovies(searchTerm = "") {
     isLoading,
     status,
   } = useQuery({
-    queryKey: ["allMovies"],
+    queryKey: ["allMovies", searchTerm],
     queryFn: () => getAllMovies(searchTerm),
   });
 

@@ -6,8 +6,10 @@ export async function getAllMovies(searchTerm = "") {
     .select("*")
     .ilike("title", `%${searchTerm}%`);
 
-  if (error) throw new Error("Could not get all movies");
-
+  if (error) {
+    console.error(error);
+    throw new Error("Could not get all movies");
+  }
   return data;
 }
 
@@ -17,7 +19,10 @@ export async function getTrendingMovies() {
     .select("*")
     .eq("isTrending", true);
 
-  if (error) throw new Error("Could not get trending movies");
+  if (error) {
+    console.error(error);
+    throw new Error("Could not get trending movies");
+  }
 
   return data;
 }
@@ -29,7 +34,10 @@ export async function getOnlyMovies(searchTerm = "") {
     .eq("category", "Movie")
     .ilike("title", `%${searchTerm}%`);
 
-  if (error) throw new Error("Could not get movies");
+  if (error) {
+    console.error(error);
+    throw new Error("Could not get movies");
+  }
   return data;
 }
 
@@ -40,7 +48,10 @@ export async function getOnlySeries(searchTerm = "") {
     .eq("category", "TV Series")
     .ilike("title", `%${searchTerm}%`);
 
-  if (error) throw new Error("Could not get Tv Series");
+  if (error) {
+    console.error(error);
+    throw new Error("Could not get Tv Series");
+  }
   return data;
 }
 
@@ -50,7 +61,10 @@ export async function getBookmarkedShows() {
     .select("*")
     .eq("isBookmarked", true);
 
-  if (error) throw new Error("Could not get Tv Series");
+  if (error) {
+    console.error(error);
+    throw new Error("Could not get Bookmarked Shows");
+  }
   return data;
 }
 

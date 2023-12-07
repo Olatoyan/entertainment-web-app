@@ -1,12 +1,19 @@
+import styled from "styled-components";
 import Heading from "../../ui/Heading";
 import TrendingMovies from "./TrendingMovies";
 
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
 function Trending() {
   return (
-    <section>
+    <Section>
       <Heading as="h1">Trending</Heading>
       <TrendingMovies />
-    </section>
+    </Section>
   );
 }
 

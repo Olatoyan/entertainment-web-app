@@ -8,6 +8,7 @@ const StyledMovie = styled.div`
   align-items: center;
   gap: 4rem;
   flex-wrap: wrap;
+  margin-top: 3.8rem;
 `;
 
 function BookmarkShows() {
@@ -19,10 +20,6 @@ function BookmarkShows() {
 
   return (
     <StyledMovie>
-      {/* {bookmarkedShows.map((bookmark) => (
-        <BookmarkItem key={bookmark.id} bookmarkShow={bookmarkedShows} />
-      ))} */}
-
       {bookmarkedShows.map((bookmark) => (
         <BookmarkItem key={bookmark.id} bookmarkShow={bookmark} />
       ))}

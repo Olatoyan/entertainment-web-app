@@ -8,6 +8,7 @@ const StyledMovie = styled.div`
   align-items: center;
   gap: 4rem;
   flex-wrap: wrap;
+  margin-top: 3.8rem;
 `;
 
 function Series() {

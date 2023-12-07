@@ -36,11 +36,15 @@ const Input = styled.input`
 `;
 
 function SearchBox({ placeholder, onSearch }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   function onSubmit(data) {
     console.log(data);
-    onSearch(data.searchTerm);
+    onSearch(data.searchTerm.trim());
+
+    if (data.searchTerm.trim() === "") {
+      setValue("searchTerm", "");
+    }
   }
 
   return (

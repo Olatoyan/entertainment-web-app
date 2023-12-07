@@ -15,7 +15,7 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 
-function RecommendedMovie({ movie }) {
+function RecommendedMovie({ movie, search }) {
   const { id, title, category, year, rating, isBookmarked, regular_large } =
     movie;
 
@@ -41,7 +41,7 @@ function RecommendedMovie({ movie }) {
         </MovieOverlay>
       </MovieImgBox>
 
-      <BookmarkIcon onClick={handleToggle} disabled={isToggling}>
+      <BookmarkIcon onClick={handleToggle} disabled={isToggling || search}>
         {isBookmarked ? (
           <FaBookmark fill="#fff" size="1.6rem" />
         ) : (
