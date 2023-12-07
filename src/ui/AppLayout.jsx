@@ -9,6 +9,15 @@ const StyledAppLayout = styled.div`
   gap: 3.6rem;
   padding: 2rem 3.2rem;
   align-items: start;
+
+  @media (max-width: 62.5em) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (max-width: 31.25em) {
+    padding: 2rem;
+  }
 `;
 
 function AppLayout() {

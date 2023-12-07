@@ -12,12 +12,29 @@ const StyledSidebar = styled.aside`
   flex-direction: column;
   align-items: center;
   gap: 7.5rem;
+
+  @media (max-width: 62.5em) {
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: auto;
+    padding: 2.4rem;
+    gap: 0;
+    width: 97vw;
+  }
+
+  @media (max-width: 31.25em) {
+    padding: 1.6rem;
+  }
 `;
 
 const NavList = styled(motion.ul)`
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3rem;
+
+  @media (max-width: 62.5em) {
+    flex-direction: row;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -42,6 +59,21 @@ const Avatar = styled.img`
   height: 4rem;
   border: 1px solid #fff;
   border-radius: 4rem;
+
+  @media (max-width: 31.25em) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+`;
+
+const Logo = styled(motion.img)`
+  width: 3rem;
+  height: 2.7rem;
+
+  @media (max-width: 31.25em) {
+    width: 2.5rem;
+    height: 2rem;
+  }
 `;
 
 // const StyledNavLink = styled(NavLink)``;
@@ -70,7 +102,7 @@ function Sidebar() {
 
   return (
     <StyledSidebar>
-      <motion.img
+      <Logo
         src="./logo.svg"
         alt="Logo"
         whileHover={{

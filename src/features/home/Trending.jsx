@@ -6,6 +6,10 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (max-width: 31.25em) {
+    gap: 1.6rem;
+  }
 `;
 
 function Trending() {

@@ -10,6 +10,10 @@ const StyledMovie = styled.div`
   gap: 4rem;
   flex-wrap: wrap;
   margin-top: 3.8rem;
+
+  @media (max-width: 31.25em) {
+    gap: 1.6rem;
+  }
 `;
 
 function Movies() {

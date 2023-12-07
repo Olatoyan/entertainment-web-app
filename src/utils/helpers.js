@@ -69,14 +69,13 @@ export async function getBookmarkedShows() {
 }
 
 export async function toggleBookmark(id, obj) {
-  console.log(obj);
+  console.log(id, obj);
 
   const { data, error } = await supabase
     .from("movies")
     .update(obj)
-    .order("id", { ascending: true })
     .eq("id", id)
-    .select("*");
+    .select();
 
   if (error) {
     console.error(error);

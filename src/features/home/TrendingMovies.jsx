@@ -10,6 +10,11 @@ const StyledMovie = styled.div`
   width: 100%;
   overflow-x: auto;
   margin-bottom: 4rem;
+
+  @media (max-width: 31.25em) {
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+  }
 `;
 
 function TrendingMovies() {

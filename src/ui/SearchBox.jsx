@@ -7,11 +7,20 @@ const StyledSearchBox = styled.form`
   gap: 1.5rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 31.25em) {
+    align-items: stretch;
+  }
 `;
 
 const SearchIcon = styled.img`
   height: 2.7rem;
   width: 2.7rem;
+
+  @media (max-width: 31.25em) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 `;
 
 const Input = styled.input`
@@ -32,6 +41,10 @@ const Input = styled.input`
   &:focus,
   &:hover {
     border-bottom: 1px solid var(--greyish-blue);
+  }
+
+  @media (max-width: 31.25em) {
+    font-size: 1.6rem;
   }
 `;
 

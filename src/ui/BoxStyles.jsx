@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Main = styled.main`
-  max-width: 139rem;
+  width: 85vw;
+
+  @media (max-width: 62.5em) {
+    width: 100vw;
+  }
 `;
 
 export const Results = styled.p`
@@ -17,6 +21,10 @@ export const StyledMovie = styled.div`
   align-items: center;
   gap: 4rem;
   flex-wrap: wrap;
+
+  @media (max-width: 31.25em) {
+    gap: 1.6rem;
+  }
 `;
 
 export const BookmarkIcon = styled.button`
@@ -40,6 +48,7 @@ export const BookmarkIcon = styled.button`
 export const MovieInfo = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: auto;
 `;
 
 export const Movie = styled.div`
@@ -49,6 +58,10 @@ export const Movie = styled.div`
   font-size: 1.3rem;
   font-weight: 300;
   opacity: 0.75;
+
+  @media (max-width: 31.25em) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const Dot = styled.span`
@@ -105,6 +118,16 @@ export const MovieImg = styled.img`
   width: 28rem;
   height: 17.4rem;
   border-radius: 0.8rem;
+
+  @media (max-width: 62.5em) {
+    width: 22rem;
+    height: 14rem;
+  }
+
+  @media (max-width: 31.25em) {
+    width: 16.4rem;
+    height: 11rem;
+  }
 `;
 
 export const MovieImgBox = styled.div`

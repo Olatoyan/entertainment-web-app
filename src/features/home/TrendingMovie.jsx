@@ -34,6 +34,12 @@ const MovieBox = styled(motion.div)`
       transform: translateY(0);
     }
   }
+
+  @media (max-width: 31.25em) {
+    width: 24rem;
+    height: 14rem;
+    padding: 1.6rem;
+  }
 `;
 
 function TrendingMovie({ movie }) {
