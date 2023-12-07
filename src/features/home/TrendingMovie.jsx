@@ -12,8 +12,9 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 import { useToggleBookmark } from "../../utils/useToggleBookmark";
+import { motion } from "framer-motion";
 
-const MovieBox = styled.div`
+const MovieBox = styled(motion.div)`
   height: 23rem;
   width: 47rem;
   /* width: 100%; */

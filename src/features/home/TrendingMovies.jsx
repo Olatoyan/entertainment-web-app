@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
 import TrendingMovie from "./TrendingMovie";
 import { useTrendingMovies } from "./useTrendingMovies";
+import { motion } from "framer-motion";
 
 const StyledMovie = styled.div`
   display: flex;
@@ -12,16 +13,60 @@ const StyledMovie = styled.div`
 `;
 
 function TrendingMovies() {
+  // const listItemVariants = {
+  //   hidden: { opacity: 0, scale: 0.5 },
+  //   visible: { opacity: 1, scale: 1 },
+  //   transition: { type: "spring" },
+  // };
+
+  // const staggerContainerVariants = {
+  //   visible: {
+  //     transition: {
+  //       staggerChildren: 0.2,
+  //     },
+  //   },
+  // };
+
+  // const staggeredChildrenTransition = {
+  //   variants: staggerContainerVariants,
+  //   initial: "hidden",
+  //   animate: "visible",
+  // };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: -50 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    transition: { type: "spring", damping: 15, stiffness: 300 },
+  };
+
+  const staggerContainerVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const staggeredChildrenTransition = {
+    variants: staggerContainerVariants,
+    initial: "hidden",
+    animate: "visible",
+  };
+
   const { trendingMovies, isLoading } = useTrendingMovies();
 
   if (isLoading) return <Spinner />;
 
   return (
-    <StyledMovie>
-      {trendingMovies.map((movie) => (
-        <TrendingMovie key={movie.title} movie={movie} />
-      ))}
-    </StyledMovie>
+    <motion.div {...staggeredChildrenTransition}>
+      <StyledMovie>
+        {trendingMovies.map((movie) => (
+          <motion.div key={movie.title} variants={listItemVariants}>
+            <TrendingMovie movie={movie} />
+          </motion.div>
+        ))}
+      </StyledMovie>
+    </motion.div>
   );
 }
 

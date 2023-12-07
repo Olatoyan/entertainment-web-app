@@ -15,7 +15,7 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 
-function BookmarkItem({ bookmarkShow }) {
+function BookmarkItem({ bookmarkShow, variant }) {
   const { id, title, category, year, rating, isBookmarked, regular_large } =
     bookmarkShow;
 
@@ -31,7 +31,7 @@ function BookmarkItem({ bookmarkShow }) {
       : "./icon-category-tv.svg";
 
   return (
-    <MovieBox>
+    <MovieBox variants={variant}>
       <MovieImgBox>
         <MovieImg src={regular_large} alt={`Thumbnail of ${title}`} />
         <MovieOverlay>

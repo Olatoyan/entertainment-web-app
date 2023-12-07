@@ -8,6 +8,7 @@ const StyledAppLayout = styled.div`
   grid-template-columns: 10rem 1fr;
   gap: 3.6rem;
   padding: 2rem 3.2rem;
+  align-items: start;
 `;
 
 function AppLayout() {

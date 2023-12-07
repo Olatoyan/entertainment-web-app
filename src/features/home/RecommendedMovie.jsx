@@ -15,7 +15,7 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 
-function RecommendedMovie({ movie, search }) {
+function RecommendedMovie({ movie, search, variant }) {
   const { id, title, category, year, rating, isBookmarked, regular_large } =
     movie;
 
@@ -30,7 +30,7 @@ function RecommendedMovie({ movie, search }) {
       : "./icon-category-tv.svg";
 
   return (
-    <MovieBox>
+    <MovieBox variants={variant}>
       <MovieImgBox>
         <MovieImg src={regular_large} alt={`Thumbnail of ${title}`} />
         <MovieOverlay>

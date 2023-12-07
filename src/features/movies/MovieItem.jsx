@@ -16,7 +16,7 @@ import {
   PlayButton,
 } from "../../ui/BoxStyles";
 
-function MovieItem({ movie }) {
+function MovieItem({ movie, variant }) {
   const { id, title, category, year, rating, isBookmarked, regular_large } =
     movie;
 
@@ -27,7 +27,7 @@ function MovieItem({ movie }) {
   }
   return (
     <div>
-      <MovieBox>
+      <MovieBox variants={variant}>
         <MovieImgBox>
           <MovieImg src={regular_large} alt={`Thumbnail of ${title}`} />
           <MovieOverlay>

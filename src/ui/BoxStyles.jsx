@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const Main = styled.main`
   max-width: 139rem;
@@ -94,7 +95,7 @@ export const PlayButton = styled.button`
   gap: 2rem;
 `;
 
-export const MovieBox = styled.div`
+export const MovieBox = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: relative;
