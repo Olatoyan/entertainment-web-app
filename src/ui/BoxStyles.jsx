@@ -27,7 +27,7 @@ export const StyledMovie = styled.div`
   }
 `;
 
-export const BookmarkIcon = styled.button`
+export const BookmarkIcon = styled(motion.button)`
   background-color: rgba(16, 20, 30, 0.5);
   padding: 1rem;
   border-radius: 50%;
@@ -35,6 +35,7 @@ export const BookmarkIcon = styled.button`
   position: absolute;
   top: 6%;
   right: 5%;
+  z-index: 10;
 
   &:hover {
     background-color: #fff;
@@ -115,6 +116,22 @@ export const MovieBox = styled(motion.div)`
 `;
 
 export const MovieImg = styled.img`
+  width: 28rem;
+  height: 17.4rem;
+  border-radius: 0.8rem;
+
+  @media (max-width: 62.5em) {
+    width: 22rem;
+    height: 14rem;
+  }
+
+  @media (max-width: 31.25em) {
+    width: 16.4rem;
+    height: 11rem;
+  }
+`;
+
+export const MovieSource = styled.source`
   width: 28rem;
   height: 17.4rem;
   border-radius: 0.8rem;

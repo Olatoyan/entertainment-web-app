@@ -2,6 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+// import { CiLogout } from "react-icons/ci";
+import Logout from "../features/authentication/Logout";
+
 const StyledSidebar = styled.aside`
   border-radius: 2rem;
   background-color: var(--semi-dark-blue);
@@ -53,18 +56,18 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const Avatar = styled.img`
-  margin-top: auto;
-  width: 4rem;
-  height: 4rem;
-  border: 1px solid #fff;
-  border-radius: 4rem;
+// const Avatar = styled.img`
+//   margin-top: auto;
+//   width: 4rem;
+//   height: 4rem;
+//   border: 1px solid #fff;
+//   border-radius: 4rem;
 
-  @media (max-width: 31.25em) {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
-`;
+//   @media (max-width: 31.25em) {
+//     width: 2.4rem;
+//     height: 2.4rem;
+//   }
+// `;
 
 const Logo = styled(motion.img)`
   width: 3rem;
@@ -106,47 +109,75 @@ function Sidebar() {
         src="./logo.svg"
         alt="Logo"
         whileHover={{
-          scale: 2,
+          scale: 1.5,
         }}
       />
 
       <nav>
         <NavList {...staggeredChildrenTransition}>
           <motion.li variants={listItemVariants}>
-            <StyledNavLink to="/">
-              <svg>
-                <use xlinkHref="./icon-nav-home.svg#nav-home"></use>
-              </svg>
-            </StyledNavLink>
+            <motion.div
+              whileHover={{
+                scale: 1.5,
+                transition: { type: "spring", stiffness: 300, damping: 30 },
+              }}
+            >
+              <StyledNavLink to="/all">
+                <svg>
+                  <use xlinkHref="./icon-nav-home.svg#nav-home"></use>
+                </svg>
+              </StyledNavLink>
+            </motion.div>
           </motion.li>
 
           <motion.li variants={listItemVariants}>
-            <StyledNavLink to="/movies">
-              <svg>
-                <use xlinkHref="./icon-nav-movies.svg#nav-movies"></use>
-              </svg>
-            </StyledNavLink>
+            <motion.div
+              whileHover={{
+                scale: 1.5,
+                transition: { type: "spring", stiffness: 300, damping: 30 },
+              }}
+            >
+              <StyledNavLink to="/movies">
+                <svg>
+                  <use xlinkHref="./icon-nav-movies.svg#nav-movies"></use>
+                </svg>
+              </StyledNavLink>
+            </motion.div>
           </motion.li>
 
           <motion.li variants={listItemVariants}>
-            <StyledNavLink to="/series">
-              <svg>
-                <use xlinkHref="./icon-nav-tv-series.svg#nav-series"></use>
-              </svg>
-            </StyledNavLink>
+            <motion.div
+              whileHover={{
+                scale: 1.5,
+                transition: { type: "spring", stiffness: 300, damping: 30 },
+              }}
+            >
+              <StyledNavLink to="/series">
+                <svg>
+                  <use xlinkHref="./icon-nav-tv-series.svg#nav-series"></use>
+                </svg>
+              </StyledNavLink>
+            </motion.div>
           </motion.li>
 
           <motion.li variants={listItemVariants}>
-            <StyledNavLink to="/bookmark">
-              <svg>
-                <use xlinkHref="./icon-nav-bookmark.svg#nav-bookmark"></use>
-              </svg>
-            </StyledNavLink>
+            <motion.div
+              whileHover={{
+                scale: 1.5,
+                transition: { type: "spring", stiffness: 300, damping: 30 },
+              }}
+            >
+              <StyledNavLink to="/bookmark">
+                <svg>
+                  <use xlinkHref="./icon-nav-bookmark.svg#nav-bookmark"></use>
+                </svg>
+              </StyledNavLink>
+            </motion.div>
           </motion.li>
         </NavList>
       </nav>
 
-      <Avatar src="./image-avatar.png" alt="Avatar" />
+      <Logout />
     </StyledSidebar>
   );
 }

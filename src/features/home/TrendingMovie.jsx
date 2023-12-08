@@ -13,6 +13,7 @@ import {
 } from "../../ui/BoxStyles";
 import { useToggleBookmark } from "../../utils/useToggleBookmark";
 import { motion } from "framer-motion";
+import MiniSpinner from "../../ui/MiniSpinner";
 
 const MovieBox = styled(motion.div)`
   height: 23rem;
@@ -43,8 +44,16 @@ const MovieBox = styled(motion.div)`
 `;
 
 function TrendingMovie({ movie }) {
-  const { id, title, category, year, rating, isBookmarked, trending_large } =
-    movie;
+  const {
+    id,
+    title,
+    category,
+    year,
+    rating,
+    isBookmarked,
+    trending_large,
+    trending_small,
+  } = movie;
 
   const { toggleBookmark, isToggling } = useToggleBookmark();
 
@@ -57,22 +66,39 @@ function TrendingMovie({ movie }) {
       ? "./icon-category-movie.svg"
       : "./icon-category-tv.svg";
 
+  const isMobile = window.innerWidth < 500;
+
+  const backgroundStyle = `url(${isMobile ? trending_small : trending_large})`;
+
+  console.log(backgroundStyle);
+
   return (
     <MovieBox
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center",
         // backgroundImage: `url(${movie.thumbnail.regular.large})`,
-        backgroundImage: `url(${trending_large})`,
+        backgroundImage: backgroundStyle,
       }}
     >
-      <BookmarkIcon onClick={handleToggle} disabled={isToggling}>
-        {isBookmarked ? (
-          <FaBookmark fill="#fff" size="1.6rem" />
-        ) : (
-          <FaRegBookmark size="1.6rem" fill="#fff" />
-        )}
-      </BookmarkIcon>
+      {isToggling ? (
+        <MiniSpinner type="bookmark" />
+      ) : (
+        <BookmarkIcon
+          onClick={handleToggle}
+          disabled={isToggling}
+          whileHover={{
+            scale: 1.2,
+            transition: { type: "spring", stiffness: 300, damping: 30 },
+          }}
+        >
+          {isBookmarked ? (
+            <FaBookmark fill="#fff" size="1.6rem" />
+          ) : (
+            <FaRegBookmark size="1.6rem" fill="#fff" />
+          )}
+        </BookmarkIcon>
+      )}
 
       <MovieInfo>
         <Movie>

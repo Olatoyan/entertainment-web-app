@@ -8,6 +8,9 @@ import { Toaster } from "react-hot-toast";
 import MoviesPage from "./pages/MoviesPage";
 import SeriesPage from "./pages/SeriesPage";
 import BookmarkPage from "./pages/BookmarkPage";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,12 +28,21 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/movies" element={<MoviesPage />} />
-            <Route path="/series" element={<SeriesPage />} />
-            <Route path="/bookmark" element={<BookmarkPage />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Homepage />} />
+            <Route path="all" element={<Homepage />} />
+            <Route path="movies" element={<MoviesPage />} />
+            <Route path="series" element={<SeriesPage />} />
+            <Route path="bookmark" element={<BookmarkPage />} />
           </Route>
+          <Route path="signup" element={<Signup />} />
+          <Route path="login" element={<Login />} />
         </Routes>
       </BrowserRouter>
 
