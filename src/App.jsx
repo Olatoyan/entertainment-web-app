@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./styles/Globalstyles";
 import AppLayout from "./ui/AppLayout";
 import Homepage from "./pages/Homepage";
@@ -35,7 +35,7 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Homepage />} />
+            <Route index element={<Navigate replace to="all" />} />
             <Route path="all" element={<Homepage />} />
             <Route path="movies" element={<MoviesPage />} />
             <Route path="series" element={<SeriesPage />} />
