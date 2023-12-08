@@ -27,6 +27,7 @@ const StyledSidebar = styled.aside`
 
   @media (max-width: 31.25em) {
     padding: 1.6rem;
+    width: 90vw;
   }
 `;
 
@@ -37,6 +38,10 @@ const NavList = styled(motion.ul)`
 
   @media (max-width: 62.5em) {
     flex-direction: row;
+  }
+
+  @media (max-width: 31.25em) {
+    gap: 1.6rem;
   }
 `;
 

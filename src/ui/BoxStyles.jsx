@@ -14,6 +14,10 @@ export const Results = styled.p`
   font-weight: 300;
   letter-spacing: -0.05rem;
   margin-bottom: 3.2rem;
+
+  @media (max-width: 31.25em) {
+    font-size: 2rem;
+  }
 `;
 
 export const StyledMovie = styled.div`
