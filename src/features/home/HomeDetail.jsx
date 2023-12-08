@@ -24,9 +24,7 @@ function HomeDetail() {
   }, [data, searchValue]);
 
   const handleSearch = async (searchTerm) => {
-    console.log(`Searching for: ${searchTerm}`);
     setSearchValue(searchTerm.trim());
-    console.log(searchValue);
   };
 
   return (
@@ -63,56 +61,5 @@ function HomeDetail() {
     </>
   );
 }
-
-// function HomeDetail() {
-//   const queryClient = useQueryClient();
-
-//   const [searchValue, setSearchValue] = useState("");
-//   const [movieData, setMovieData] = useState([]);
-//   // const { searchResults, isLoading } = useMovieSearch(searchValue);
-
-//   useEffect(() => {
-//     const data = queryClient.getQueryData(["allMovies", ""]);
-//     console.log(data);
-//     setMovieData(data);
-//     // console.log(searchResults);
-//   }, [searchValue, queryClient]);
-
-//   const handleSearch = async (searchTerm) => {
-//     console.log(`Searching for: ${searchTerm}`);
-//     setSearchValue(searchTerm.trim());
-//     console.log(movieData);
-//   };
-
-//   return (
-//     <>
-//       <SearchBox
-//         placeholder={"Search for movies or TV series"}
-//         onSearch={handleSearch}
-//       />
-//       <Trending />
-//       <Recommended />
-//       {/* {isLoading ? (
-//         <Spinner />
-//       ) : searchValue && searchResults.length > 0 ? (
-//         <>
-// <Results>
-//   Found {searchResults.length} results for {searchValue}
-// </Results>
-//           <StyledMovie>
-//             {searchResults.map((movie) => (
-//               <RecommendedMovie key={movie.title} movie={movie} />
-//             ))}
-//           </StyledMovie>
-//         </>
-//       ) : (
-//         <>
-//           <Trending />
-//           <Recommended />
-//         </>
-//       )} */}
-//     </>
-//   );
-// }
 
 export default HomeDetail;

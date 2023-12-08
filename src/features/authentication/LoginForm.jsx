@@ -114,7 +114,6 @@ function LoginForm() {
   const { errors } = formState;
 
   function onSubmit({ email, password }) {
-    console.log(email, password);
     login(
       { email, password },
       {
@@ -138,6 +137,7 @@ function LoginForm() {
               }}
               type="email"
               disabled={isLoading}
+              defaultValue="test@gmail.com"
               placeholder="Email address"
               {...register("email", {
                 required: "This field is required",
@@ -159,6 +159,7 @@ function LoginForm() {
               }}
               type="password"
               disabled={isLoading}
+              defaultValue="qwerty!@#"
               placeholder="Password (min 6 characters)"
               {...register("password", {
                 required: "This field is required",

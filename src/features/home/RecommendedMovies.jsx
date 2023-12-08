@@ -1,6 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { getAllMovies } from "../../utils/helpers";
-
 import RecommendedMovie from "./RecommendedMovie";
 import Spinner from "../../ui/Spinner";
 import { useAllMovies } from "./useAllMovies";

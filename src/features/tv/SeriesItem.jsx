@@ -30,8 +30,6 @@ function MovieItem({ series, variant }) {
     regular_small,
   } = series;
 
-  console.log(series);
-
   const { toggleBookmark, isToggling } = useToggleBookmark();
 
   function handleToggle() {

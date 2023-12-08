@@ -41,8 +41,6 @@ function BookmarkShows() {
 
   if (isLoading) return <Spinner />;
 
-  console.log(bookmarkedShows);
-
   return (
     <motion.div {...staggeredChildrenTransition}>
       <StyledMovie>

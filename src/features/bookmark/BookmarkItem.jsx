@@ -30,7 +30,6 @@ function BookmarkItem({ bookmarkShow, variant }) {
     regular_small,
   } = bookmarkShow;
 
-  // console.log(bookmarkShow);
   const { toggleBookmark, isToggling } = useToggleBookmark();
 
   function handleToggle() {

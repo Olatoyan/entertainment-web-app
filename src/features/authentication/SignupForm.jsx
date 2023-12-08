@@ -3,6 +3,7 @@ import Heading from "../../ui/Heading";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignup } from "./useSignup";
+import MiniSpinner from "../../ui/MiniSpinner";
 
 const AppLayout = styled.div`
   display: flex;
@@ -113,7 +114,6 @@ function SignupForm() {
   const { errors } = formState;
 
   function onSubmit({ email, password }) {
-    console.log(email, password);
     signup(
       { email, password },
       {
@@ -192,7 +192,7 @@ function SignupForm() {
           </FormRow>
 
           <Button type="submit" disabled={isLoading}>
-            Create an account
+            {isLoading ? <MiniSpinner /> : "Create an account"}
           </Button>
 
           <Box>

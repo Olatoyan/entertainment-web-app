@@ -70,14 +70,12 @@ function TrendingMovie({ movie }) {
 
   const backgroundStyle = `url(${isMobile ? trending_small : trending_large})`;
 
-  console.log(backgroundStyle);
-
   return (
     <MovieBox
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center",
-        // backgroundImage: `url(${movie.thumbnail.regular.large})`,
+
         backgroundImage: backgroundStyle,
       }}
     >

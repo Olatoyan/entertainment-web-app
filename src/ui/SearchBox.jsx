@@ -52,7 +52,6 @@ function SearchBox({ placeholder, onSearch }) {
   const { register, handleSubmit, setValue } = useForm();
 
   function onSubmit(data) {
-    console.log(data);
     onSearch(data.searchTerm.trim());
 
     if (data.searchTerm.trim() === "") {

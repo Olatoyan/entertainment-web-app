@@ -24,9 +24,7 @@ function MovieDetail() {
   }, [data, searchValue]);
 
   const handleSearch = async (searchTerm) => {
-    console.log(`Searching for: ${searchTerm}`);
     setSearchValue(searchTerm.trim());
-    console.log(searchValue);
   };
 
   return (

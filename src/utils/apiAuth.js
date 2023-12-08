@@ -31,13 +31,13 @@ export async function Logout() {
 export async function getCurrentUser() {
   const { data: session } = await supabase.auth.getSession();
 
-  console.log(session);
+ 
 
   if (!session.session) return null;
 
   const { data, error } = await supabase.auth.getUser();
 
   if (error) throw new Error(error.message);
-  console.log(data);
+ 
   return data?.user;
 }

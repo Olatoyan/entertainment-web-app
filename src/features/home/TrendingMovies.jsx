@@ -18,25 +18,7 @@ const StyledMovie = styled.div`
 `;
 
 function TrendingMovies() {
-  // const listItemVariants = {
-  //   hidden: { opacity: 0, scale: 0.5 },
-  //   visible: { opacity: 1, scale: 1 },
-  //   transition: { type: "spring" },
-  // };
 
-  // const staggerContainerVariants = {
-  //   visible: {
-  //     transition: {
-  //       staggerChildren: 0.2,
-  //     },
-  //   },
-  // };
-
-  // const staggeredChildrenTransition = {
-  //   variants: staggerContainerVariants,
-  //   initial: "hidden",
-  //   animate: "visible",
-  // };
 
   const listItemVariants = {
     hidden: { opacity: 0, scale: 0.8, y: -50 },
