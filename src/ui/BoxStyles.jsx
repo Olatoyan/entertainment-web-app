@@ -6,6 +6,7 @@ export const Main = styled.main`
 
   @media (max-width: 62.5em) {
     width: 100vw;
+    margin-top: 6rem;
   }
 `;
 

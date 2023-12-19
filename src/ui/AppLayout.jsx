@@ -16,7 +16,7 @@ const StyledAppLayout = styled.div`
   }
 
   @media (max-width: 31.25em) {
-    padding: 2rem;
+    padding: 0 2rem 2rem;
   }
 `;
 

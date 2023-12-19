@@ -23,6 +23,8 @@ const StyledSidebar = styled.aside`
     padding: 2.4rem;
     gap: 0;
     width: 97vw;
+    position: fixed;
+    z-index: 20;
   }
 
   @media (max-width: 31.25em) {

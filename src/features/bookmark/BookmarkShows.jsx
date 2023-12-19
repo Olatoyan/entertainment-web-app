@@ -41,6 +41,16 @@ function BookmarkShows() {
 
   if (isLoading) return <Spinner />;
 
+  if (bookmarkedShows.length === 1)
+    return (
+      <StyledMovie>
+        <BookmarkItem
+          bookmarkShow={bookmarkedShows[0]}
+          variant={listItemVariants}
+        />
+      </StyledMovie>
+    );
+
   return (
     <motion.div {...staggeredChildrenTransition}>
       <StyledMovie>

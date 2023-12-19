@@ -5,13 +5,15 @@ import BookmarkShows from "./BookmarkShows";
 import { useEffect, useState } from "react";
 import { Results, StyledMovie } from "../../ui/BoxStyles";
 import RecommendedMovie from "../home/RecommendedMovie";
+import { useBookmark } from "./useBookmark";
 
 function BookmarkDetail() {
   const queryClient = useQueryClient();
+  const { bookmarkedShows } = useBookmark();
 
   const [searchValue, setSearchValue] = useState("");
   const [movieData, setMovieData] = useState([]);
-  const data = queryClient.getQueryData(["series", ""]);
+  const data = queryClient.getQueryData(["bookmark"]);
 
   useEffect(() => {
     const filteredData = data?.filter((movie) => {
@@ -51,11 +53,27 @@ function BookmarkDetail() {
         </>
       )}
 
-      {(movieData?.length === 0 || !movieData) && (
-        <>
-          <Heading as="h1">Bookmarked Shows</Heading>
-          <BookmarkShows />
-        </>
+      {(movieData?.length === 0 || !movieData) &&
+        bookmarkedShows.length > 0 && (
+          <>
+            <Heading as="h1">Bookmarked Shows</Heading>
+            <BookmarkShows />
+          </>
+        )}
+
+      {bookmarkedShows.length === 0 && (
+        <div>
+          <Heading as="h1">No Bookmarked Shows Found.</Heading>
+          <Heading as="h4">
+            Looks like your watchlist is feeling a bit lonely! 🍿
+          </Heading>
+          <Heading as="h4">
+            Why not explore our library and add some shows to your bookmarks?
+          </Heading>
+          <Heading as="h4">
+            Go ahead, discover your next favorite and bring it here!
+          </Heading>
+        </div>
       )}
     </>
   );
